@@ -14,28 +14,25 @@ const containerVariants = {
 };
 
 const fadeUp:any = {
-  hidden: { opacity: 0, y: 30 },
+  hidden: { y: 20 }, // ❌ removed opacity for LCP safety
   show: {
-    opacity: 1,
     y: 0,
-    transition: { duration: 0.8, ease: "easeOut" },
+    transition: { duration: 0.7, ease: "easeOut" },
   },
 };
 
 const titleVariant:any = {
-  hidden: { opacity: 0, y: 60, skewY: 4 },
+  hidden: { y: 40, skewY: 3 }, // ❌ no opacity
   show: {
-    opacity: 1,
     y: 0,
     skewY: 0,
-    transition: { duration: 1, ease: "easeOut" },
+    transition: { duration: 0.9, ease: "easeOut" },
   },
 };
 
 const iconFloat:any = {
-  hidden: { opacity: 0, scale: 0.8, y: 10 },
+  hidden: { scale: 0.9, y: 10 }, // ❌ no opacity
   show: {
-    opacity: 1,
     scale: 1,
     y: 0,
     transition: { duration: 0.6 },
@@ -46,23 +43,21 @@ export default function Hero() {
   return (
     <section className="relative min-h-screen flex items-center justify-center bg-[#05060a] text-white overflow-hidden px-6">
 
-      {/* 🔮 Premium Glow Background */}
+      {/* 🔮 Background Glow */}
       <div className="absolute inset-0">
         <div className="absolute top-[-20%] left-1/2 -translate-x-1/2 w-[700px] h-[700px] bg-cyan-500/10 blur-[160px] rounded-full animate-pulse" />
         <div className="absolute bottom-[-20%] right-[-10%] w-[600px] h-[600px] bg-violet-500/10 blur-[160px] rounded-full animate-pulse" />
       </div>
 
-      {/* 🧊 Glass Card Container */}
+      {/* 🧊 Content */}
       <motion.div
         variants={containerVariants}
-        initial="hidden"
+        initial={false}   // ✅ FIX LCP
         animate="show"
-        className="relative z-10 max-w-5xl w-full text-center 
-                    
-                   shadow-2xl"
+        className="relative z-10 max-w-5xl w-full text-center"
       >
 
-        {/* Floating Tech Icons */}
+        {/* Icons */}
         <div className="flex justify-center gap-6 mb-8">
           {[BiLogoAngular, BiLogoReact, RiNextjsFill].map((Icon, i) => (
             <motion.div
@@ -107,7 +102,7 @@ export default function Hero() {
           fintech applications using React, Next.js, Angular, WebSockets, and modern UI architecture.
         </motion.p>
 
-        {/* CTA Button */}
+        {/* CTA */}
         <motion.div variants={fadeUp} className="mt-10">
           <motion.a
             href="#projects"
