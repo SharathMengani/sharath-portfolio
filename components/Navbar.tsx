@@ -94,14 +94,8 @@ export default function Navbar() {
       {/* ── desktop bar ── */}
       <div className="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
         {/* logo */}
-        <a href="#" className="nav-logo flex items-center gap-2">
-          <div
-            className="w-9 h-9 rounded-xl flex items-center justify-center text-sm font-black text-black pulse-glow"
-            style={{ background: "linear-gradient(135deg, #00e5ff, #7c3aed)" }}
-          >
-            P
-          </div>
-          <span className="text-lg font-bold gradient-text">Portfolio</span>
+        <a href="#" className="nav-logo flex items-center gap-2 ">
+          <span className="text-4xl font-bold text-transparent bg-clip-text  bg-cyan-400">Sharath</span>
         </a>
 
         {/* desktop links */}
@@ -122,13 +116,10 @@ export default function Navbar() {
         {/* desktop CTA */}
         <a
           href="#contact"
-          className="nav-cta hidden md:inline-flex items-center gap-2 px-5 py-2.5 rounded-full text-sm font-semibold text-black"
+          className="nav-cta hidden md:inline-flex items-center gap-2 px-5 py-2.5 rounded-full text-sm font-semibold bg-cyan-400"
           onMouseEnter={handleCtaEnter}
           onMouseLeave={handleCtaLeave}
-          style={{
-            background: "linear-gradient(135deg, #00e5ff, #7c3aed)",
-            boxShadow: "0 0 20px rgba(0,229,255,0.35)",
-          }}
+        
         >
           Hire Me ✦
         </a>
@@ -166,8 +157,7 @@ export default function Navbar() {
           <a
             href="#contact"
             onClick={() => setOpen(false)}
-            className="mobile-link inline-flex justify-center px-5 py-3 rounded-full text-sm font-semibold text-black mt-2"
-            style={{ background: "linear-gradient(135deg, #00e5ff, #7c3aed)" }}
+            className="mobile-link inline-flex justify-center px-5 py-3 rounded-full text-sm font-semibold bg-cyan-400 mt-2"
           >
             Hire Me ✦
           </a>
