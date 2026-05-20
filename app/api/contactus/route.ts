@@ -1,6 +1,8 @@
 import nodemailer from "nodemailer";
 
 export async function POST(req: Request) {
+  console.log('api'+ process.env.GMAIL_USER);
+  console.log('api'+ process.env.GMAIL_APP_PASSWORD);
   try {
     const { name, email, message, type, mobile } = await req.json();
 

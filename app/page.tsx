@@ -7,6 +7,8 @@ import Projects from "@/components/Projects";
 import Skills from "@/components/Skills";
 
 export default function Home() {
+  console.log('home'+ process.env.GMAIL_USER);
+  console.log('home'+ process.env.GMAIL_APP_PASSWORD);
   return (
     <>
       <Navbar />
@@ -14,7 +16,7 @@ export default function Home() {
       <About />
       <Projects />
       <Skills />
-      <Contact/>
+      <Contact />
       <Footer />
     </>
   );
