@@ -142,48 +142,86 @@ export default function Projects() {
 
                   {/* Visual Mockup Graphic */}
                   {project.previewType === "trading" && (
-                    <div className="my-auto space-y-1">
-                      <div className="flex justify-between items-center text-[9px] font-mono text-zinc-500 mb-1">
-                        <span>BID (DEPTH)</span>
-                        <span>ASK (DEPTH)</span>
-                      </div>
-                      <div className="flex gap-2">
-                        <div className="flex-1 space-y-1">
-                          <div className="h-2 rounded bg-emerald-500/20 w-[90%] border-r border-emerald-400" />
-                          <div className="h-2 rounded bg-emerald-500/20 w-[72%] border-r border-emerald-400" />
-                          <div className="h-2 rounded bg-emerald-500/20 w-[45%] border-r border-emerald-400" />
+                    <div className="my-auto space-y-1.5">
+                      {/* Candlestick + MA Line Graphic */}
+                      <div className="relative h-14 w-full bg-[#08080a] rounded-lg border border-white/[0.04] p-1.5 overflow-hidden flex flex-col justify-between">
+                        {/* Simulated Candle Wicks & Bars */}
+                        <div className="flex items-end justify-between h-9 px-1 gap-1">
+                          {[
+                            { h: 45, type: "bull" },
+                            { h: 60, type: "bull" },
+                            { h: 35, type: "bear" },
+                            { h: 80, type: "bull" },
+                            { h: 55, type: "bear" },
+                            { h: 70, type: "bull" },
+                            { h: 90, type: "bull" },
+                            { h: 65, type: "bear" },
+                            { h: 85, type: "bull" },
+                            { h: 95, type: "bull" },
+                            { h: 75, type: "bear" },
+                            { h: 88, type: "bull" },
+                          ].map((c, i) => (
+                            <div key={i} className="flex-1 flex flex-col items-center justify-end h-full">
+                              <span
+                                className={`w-[1px] h-full ${c.type === "bull" ? "bg-emerald-400/50" : "bg-rose-400/50"
+                                  }`}
+                              />
+                              <span
+                                style={{ height: `${c.h}%` }}
+                                className={`w-full rounded-[1px] ${c.type === "bull" ? "bg-emerald-400" : "bg-rose-400"
+                                  }`}
+                              />
+                            </div>
+                          ))}
                         </div>
-                        <div className="flex-1 space-y-1">
-                          <div className="h-2 rounded bg-rose-500/20 w-[84%] ml-auto border-l border-rose-400" />
-                          <div className="h-2 rounded bg-rose-500/20 w-[60%] ml-auto border-l border-rose-400" />
-                          <div className="h-2 rounded bg-rose-500/20 w-[35%] ml-auto border-l border-rose-400" />
+
+                        {/* MA Line Indicator & Ticker */}
+                        <div className="flex justify-between items-center text-[9px] font-mono text-zinc-500 pt-0.5 border-t border-white/[0.04]">
+                          <span className="text-indigo-400 font-semibold">MA(25): 63,940</span>
+                          <span className="text-emerald-400 font-medium">Vol: $482.4M</span>
                         </div>
                       </div>
                     </div>
                   )}
 
                   {project.previewType === "payment" && (
-                    <div className="my-auto flex items-center justify-center gap-3">
-                      <div className="w-12 h-12 rounded-lg bg-zinc-900 border border-white/10 p-1.5 flex flex-col justify-between">
+                    <div className="my-auto flex items-center justify-between gap-3 p-2 bg-[#08080a] rounded-lg border border-white/[0.04]">
+                      {/* Stylized QR Matrix */}
+                      <div className="w-12 h-12 rounded-md bg-zinc-900 border border-white/10 p-1.5 flex flex-col justify-between shrink-0 shadow-inner">
                         <div className="flex justify-between">
-                          <div className="w-2 h-2 bg-zinc-200 rounded-[2px]" />
-                          <div className="w-2 h-2 bg-zinc-200 rounded-[2px]" />
+                          <div className="w-2.5 h-2.5 bg-zinc-100 rounded-[2px]" />
+                          <div className="w-2.5 h-2.5 bg-zinc-100 rounded-[2px]" />
                         </div>
-                        <div className="w-2.5 h-2.5 bg-indigo-500/60 mx-auto rounded-sm" />
-                        <div className="w-2 h-2 bg-zinc-200 rounded-[2px]" />
+                        <div className="w-3 h-3 bg-indigo-500/80 mx-auto rounded-sm animate-pulse" />
+                        <div className="flex justify-between">
+                          <div className="w-2.5 h-2.5 bg-zinc-100 rounded-[2px]" />
+                          <div className="w-1.5 h-1.5 bg-emerald-400 rounded-full" />
+                        </div>
                       </div>
-                      <div className="space-y-1 text-left font-mono text-[9px]">
-                        <div className="text-zinc-200 font-semibold">$1,250.00 SETTLED</div>
-                        <div className="text-zinc-500 truncate max-w-[130px]">0x8f2a...39b1</div>
-                        <div className="text-emerald-400 flex items-center gap-1">✓ State Verified</div>
+
+                      {/* Transaction Settlement Telemetry */}
+                      <div className="flex-1 space-y-1 font-mono text-[9px] text-left">
+                        <div className="flex items-center justify-between">
+                          <span className="text-zinc-200 font-bold text-[10px]">$2,450.00 USDT</span>
+                          <span className="text-emerald-400 font-semibold">● Auto-Settled</span>
+                        </div>
+                        <div className="text-zinc-500 truncate font-mono text-[8.5px]">
+                          Tx: 0x8f2a93c4e71b2d...
+                        </div>
+                        <div className="flex items-center gap-2 text-[8.5px] text-zinc-400">
+                          <span>TRON TRC-20</span>
+                          <span>•</span>
+                          <span className="text-indigo-300">Gas: 0.001 ETH</span>
+                        </div>
                       </div>
                     </div>
                   )}
 
                   {project.previewType === "ai" && (
-                    <div className="my-auto space-y-1.5">
-                      <div className="flex items-center justify-center gap-1 h-7">
-                        {[40, 75, 20, 95, 60, 85, 30, 70, 90, 45, 80, 25, 65].map((h, i) => (
+                    <div className="my-auto space-y-2 p-2 bg-[#08080a] rounded-lg border border-white/[0.04]">
+                      {/* Real-time Frequency Waveform */}
+                      <div className="flex items-center justify-center gap-1 h-6">
+                        {[30, 65, 20, 85, 45, 95, 70, 35, 80, 100, 55, 75, 40, 90, 60, 25, 50].map((h, i) => (
                           <span
                             key={i}
                             style={{ height: `${h}%` }}
@@ -191,8 +229,14 @@ export default function Projects() {
                           />
                         ))}
                       </div>
-                      <div className="text-center font-mono text-[9px] text-zinc-400 truncate">
-                        "Resolving user intent • Routing to AI billing fleet..."
+
+                      {/* Live Agent Speech Telemetry */}
+                      <div className="flex items-center justify-between text-[9px] font-mono text-zinc-400 px-1 border-t border-white/[0.04] pt-1">
+                        <span className="flex items-center gap-1 text-zinc-300">
+                          <span className="w-1.5 h-1.5 rounded-full bg-emerald-400" />
+                          <span>Agent #02: "Processing audio worklet stream..."</span>
+                        </span>
+                        <span className="text-indigo-400 font-semibold shrink-0">STT: 320ms</span>
                       </div>
                     </div>
                   )}

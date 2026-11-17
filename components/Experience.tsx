@@ -78,8 +78,15 @@ const experiences = [
 
 export default function Experience() {
   return (
-    <section id="experience" className="py-28 px-6 bg-[#09090b] text-zinc-100 relative">
-      <div className="max-w-6xl mx-auto">
+    <section id="experience" className="py-28 px-6 bg-[#09090b] text-zinc-100 relative overflow-hidden">
+      {/* ── Background Subtle Glow & Grid Accent ── */}
+      <div className="absolute inset-0 pointer-events-none">
+        <div className="absolute top-1/4 right-0 w-[500px] h-[500px] bg-indigo-500/5 blur-[160px] rounded-full" />
+        <div className="absolute bottom-10 left-0 w-[500px] h-[500px] bg-teal-500/5 blur-[160px] rounded-full" />
+        <div className="absolute inset-0 bg-grid-pattern opacity-15" />
+      </div>
+
+      <div className="max-w-6xl mx-auto relative z-10">
 
         {/* ── Section Header ── */}
         <div className="mb-20 text-center">
@@ -90,7 +97,7 @@ export default function Experience() {
             Career Journey & Experience
           </h2>
           <p className="text-zinc-400 mt-2 max-w-xl mx-auto text-sm leading-relaxed">
-            6+ years of engineering production applications across FinTech, Crypto, AI, and SaaS platforms.
+            5+ years of engineering production applications across FinTech, Crypto, AI, and SaaS platforms.
           </p>
         </div>
 

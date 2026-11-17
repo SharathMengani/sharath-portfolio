@@ -10,7 +10,7 @@ import {
 } from "react-icons/fi";
 
 const stats = [
-  { value: "6+", label: "Years Exp", detail: "2020 – Present" },
+  { value: "5+", label: "Years Exp", detail: "2020 – Present" },
   { value: "20+", label: "Prod Builds", detail: "FinTech, AI & SaaS" },
   { value: "60 FPS", label: "Render Engine", detail: "Canvas Depth Charts" },
   { value: "<50ms", label: "Socket Latency", detail: "Continuous Feeds" },
@@ -18,8 +18,15 @@ const stats = [
 
 export default function About() {
   return (
-    <section id="about" className="py-28 px-6 bg-[#09090b] text-zinc-100 relative">
-      <div className="max-w-6xl mx-auto">
+    <section id="about" className="py-28 px-6 bg-[#09090b] text-zinc-100 relative overflow-hidden">
+      {/* ── Background Subtle Glow & Grid Accent ── */}
+      <div className="absolute inset-0 pointer-events-none">
+        <div className="absolute top-1/2 left-0 w-[500px] h-[500px] bg-indigo-500/5 blur-[160px] rounded-full" />
+        <div className="absolute bottom-0 right-0 w-[500px] h-[500px] bg-purple-500/5 blur-[160px] rounded-full" />
+        <div className="absolute inset-0 bg-dot-pattern opacity-20 [mask-image:radial-gradient(ellipse_50%_50%_at_50%_50%,#000_60%,transparent_100%)]" />
+      </div>
+
+      <div className="max-w-6xl mx-auto relative z-10">
 
         {/* ── Section Header ── */}
         <div className="mb-14">
@@ -52,11 +59,11 @@ export default function About() {
               </div>
 
               <h3 className="text-xl sm:text-2xl font-bold text-zinc-100 mb-3 tracking-tight">
-                6+ Years Engineering Scalable, Low-Latency Web Systems
+                5+ Years Engineering Scalable, Low-Latency Web Systems
               </h3>
 
               <p className="text-zinc-400 text-sm leading-relaxed mb-4">
-                I am <span className="text-zinc-100 font-medium">Sharath Chandra Mengani</span>, a Senior Frontend Developer with 6+ years of experience (2020–Present) engineering high-performance FinTech, Crypto, AI, and SaaS applications.
+                I am <span className="text-zinc-100 font-medium">Sharath Chandra Mengani</span>, a Senior Frontend Developer with 5+ years of experience (2020–Present) engineering high-performance FinTech, Crypto, AI, and SaaS applications.
               </p>
 
               <p className="text-zinc-400 text-sm leading-relaxed">
