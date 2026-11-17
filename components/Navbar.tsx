@@ -5,16 +5,17 @@ import gsap from "gsap";
 import { Menu, X } from "lucide-react";
 
 const links = [
-  { href: "#about",    label: "About"    },
-  { href: "#skills",   label: "Skills"   },
+  { href: "#about", label: "About" },
+  { href: "#experience", label: "Experience" },
   { href: "#projects", label: "Projects" },
-  { href: "#contact",  label: "Contact"  },
+  { href: "#skills", label: "Skills" },
+  { href: "#contact", label: "Contact" },
 ];
 
 export default function Navbar() {
-  const navRef      = useRef<HTMLElement>(null);
-  const mobileRef   = useRef<HTMLDivElement>(null);
-  const [open, setOpen]       = useState(false);
+  const navRef = useRef<HTMLElement>(null);
+  const mobileRef = useRef<HTMLDivElement>(null);
+  const [open, setOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
 
   const handleNavLinkEnter = (event: MouseEvent<HTMLAnchorElement>) => {
@@ -48,9 +49,9 @@ export default function Navbar() {
       gsap
         .timeline({ defaults: { ease: "power4.out" } })
         .from(navRef.current, { y: -84, opacity: 0, duration: 0.9 })
-        .from(q(".nav-logo"),  { x: -28, opacity: 0, duration: 0.65 }, "-=0.45")
-        .from(q(".nav-link"),  { y: -18, opacity: 0, duration: 0.55, stagger: 0.08 }, "-=0.35")
-        .from(q(".nav-cta"),   { x: 24,  opacity: 0, duration: 0.55 }, "-=0.35");
+        .from(q(".nav-logo"), { x: -28, opacity: 0, duration: 0.65 }, "-=0.45")
+        .from(q(".nav-link"), { y: -18, opacity: 0, duration: 0.55, stagger: 0.08 }, "-=0.35")
+        .from(q(".nav-cta"), { x: 24, opacity: 0, duration: 0.55 }, "-=0.35");
     }, navRef);
 
     return () => ctx.revert();
@@ -81,21 +82,26 @@ export default function Navbar() {
       className="fixed top-0 left-0 w-full z-50 transition-all duration-500"
       style={{
         background: scrolled
-          ? "rgba(5, 8, 22, 0.88)"
-          : "rgba(5, 8, 22, 0.50)",
+          ? "rgba(8, 7, 13, 0.92)"
+          : "rgba(8, 7, 13, 0.65)",
         backdropFilter: "blur(24px)",
         WebkitBackdropFilter: "blur(24px)",
         borderBottom: scrolled
-          ? "1px solid rgba(0,229,255,0.12)"
-          : "1px solid rgba(255,255,255,0.05)",
-        boxShadow: scrolled ? "0 4px 40px rgba(0,0,0,0.4)" : "none",
+          ? "1px solid rgba(139, 92, 246, 0.20)"
+          : "1px solid rgba(255, 255, 255, 0.05)",
+        boxShadow: scrolled ? "0 4px 40px rgba(0,0,0,0.6)" : "none",
       }}
     >
       {/* ── desktop bar ── */}
       <div className="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
         {/* logo */}
-        <a href="#" className="nav-logo flex items-center gap-2 ">
-          <span className="text-4xl font-bold text-transparent bg-clip-text  bg-cyan-400">Sharath</span>
+        <a href="#" className="nav-logo flex items-center gap-2.5 group">
+          <div className="w-8 h-8 rounded-lg flex items-center justify-center font-black text-white bg-gradient-to-br from-violet-600 via-purple-600 to-indigo-600 shadow-md shadow-violet-500/25">
+            S
+          </div>
+          <span className="text-xl font-bold tracking-tight text-white group-hover:text-violet-400 transition-colors">
+            Sharath<span className="text-violet-400">.</span>
+          </span>
         </a>
 
         {/* desktop links */}
@@ -104,7 +110,7 @@ export default function Navbar() {
             <a
               key={link.href}
               href={link.href}
-              className="nav-link"
+              className="nav-link text-sm font-medium text-gray-300 hover:text-violet-400 transition-colors"
               onMouseEnter={handleNavLinkEnter}
               onMouseLeave={handleNavLinkLeave}
             >
@@ -116,17 +122,16 @@ export default function Navbar() {
         {/* desktop CTA */}
         <a
           href="#contact"
-          className="nav-cta hidden md:inline-flex items-center gap-2 px-5 py-2.5 rounded-full text-sm font-semibold bg-cyan-400"
+          className="nav-cta hidden md:inline-flex items-center gap-2 px-5 py-2.5 rounded-full text-sm font-semibold bg-gradient-to-r from-violet-600 via-indigo-600 to-purple-600 text-white shadow-md shadow-violet-500/25 hover:shadow-violet-500/40 hover:scale-105 transition-all"
           onMouseEnter={handleCtaEnter}
           onMouseLeave={handleCtaLeave}
-        
         >
           Hire Me ✦
         </a>
 
         {/* mobile toggle */}
         <button
-          className="md:hidden text-white p-2 rounded-lg glass"
+          className="md:hidden text-white p-2 rounded-xl bg-white/5 border border-white/10"
           onClick={() => setOpen((v) => !v)}
           aria-label="Toggle menu"
         >
@@ -148,7 +153,7 @@ export default function Navbar() {
             <a
               key={link.href}
               href={link.href}
-              className="mobile-link nav-link text-base py-2"
+              className="mobile-link nav-link text-base py-2 text-gray-300 hover:text-violet-400 font-medium"
               onClick={() => setOpen(false)}
             >
               {link.label}
@@ -157,7 +162,7 @@ export default function Navbar() {
           <a
             href="#contact"
             onClick={() => setOpen(false)}
-            className="mobile-link inline-flex justify-center px-5 py-3 rounded-full text-sm font-semibold bg-cyan-400 mt-2"
+            className="mobile-link inline-flex justify-center px-5 py-3 rounded-full text-sm font-semibold bg-gradient-to-r from-violet-600 via-indigo-600 to-purple-600 text-white mt-2 shadow-md shadow-violet-500/25"
           >
             Hire Me ✦
           </a>

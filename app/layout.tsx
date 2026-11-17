@@ -13,8 +13,30 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Sharath - portfolio",
-  description: "Sharath's portfolio showcasing web development projects and skills",
+  title:
+    "Sharath Chandra Mengani | Senior Frontend Developer • React.js • Next.js • Angular • TypeScript",
+  description:
+    "Portfolio of Sharath Chandra Mengani, a Senior Frontend Developer with 5+ years of experience engineering high-performance FinTech, Crypto, AI, and SaaS applications. Specialized in React.js, Next.js (App Router, SSR), Angular, TypeScript, real-time trading terminals, and AI conversational/voice agent platforms.",
+  keywords: [
+    "Sharath Mengani",
+    "Sharath Chandra Mengani",
+    "Senior Frontend Developer",
+    "React.js",
+    "Next.js",
+    "Angular",
+    "TypeScript",
+    "WebSockets",
+    "CEX DEX Trading Terminal",
+    "AI Conversational Voice Agents",
+    "STT TTS",
+    "Redux",
+    "Zustand",
+    "NgRx",
+    "FinTech",
+    "Crypto",
+    "Hyderabad",
+  ],
+  authors: [{ name: "Sharath Chandra Mengani" }],
 };
 
 export default function RootLayout({

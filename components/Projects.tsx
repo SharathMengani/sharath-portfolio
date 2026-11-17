@@ -1,18 +1,50 @@
+"use client";
+
+import { motion } from "framer-motion";
+import { FiArrowUpRight, FiActivity, FiLayers, FiDollarSign } from "react-icons/fi";
+
 const projects = [
   {
-    title: "CEX Crypto Exchange",
+    title: "CEX & DEX Crypto Trading Terminal",
+    tagline: "Low-Latency Reactive Trading Interface",
+    techStack: "Next.js | React.js | Angular | WebSockets | Canvas",
     description:
-      "Built a real-time centralized crypto exchange with trading UI, order book, charts, live trades, and WebSocket integrations using Angular and Next.js.",
+      "Architected a low-latency crypto trade dashboard with continuous financial ticker streaming, live trade history, and customized order placement panels with comprehensive client-side error handling and status states.",
+    points: [
+      "Engineered high-throughput market depth charts and real-time order books using canvas rendering and selective hooks to sustain steady 60 FPS performance during high volatility trading sessions.",
+      "Integrated continuous ticker streaming and order execution states without blocking the main UI thread.",
+    ],
+    tags: ["Next.js", "React.js", "Angular", "WebSockets", "Canvas", "TypeScript"],
+    metrics: "Steady 60 FPS • Canvas Rendering",
+    icon: FiActivity,
   },
   {
-    title: "DEX Trading Platform",
+    title: "Crypto Payment & Settlement Application",
+    tagline: "Dynamic QR Checkout & Settlement State Machine",
+    techStack: "React.js | Next.js | Redux | Tailwind CSS | Framer Motion",
     description:
-      "Developed a decentralized exchange frontend using Next.js App Router with optimized rendering and modular reusable architecture.",
+      "Developed a QR-based checkout settlement workflow featuring granular form validations, asynchronous confirmation states, dynamic gas fee alerts, and responsive user feedback animations.",
+    points: [
+      "Implemented secure transaction state machines using Redux Toolkit, managing real-time payment timeouts, retry strategies, and localized receipt generation.",
+      "Designed dynamic gas fee alerts and responsive micro-interactions for seamless payment UX.",
+    ],
+    tags: ["React.js", "Next.js", "Redux Toolkit", "Tailwind CSS", "Framer Motion"],
+    metrics: "Redux State Machine • Instant QR Settlement",
+    icon: FiDollarSign,
   },
   {
-    title: "Crypto Payment Application",
+    title: "AI Conversational & Voice Agent Platform",
+    tagline: "Enterprise Voice/Chat Agents & Embeddable SDK",
+    techStack: "Next.js | React.js | TypeScript | WebSockets | STT/TTS",
     description:
-      "Built a crypto payments and QR transaction platform using React.js, Redux, Tailwind CSS, and Framer Motion animations.",
+      "Constructed an enterprise-grade AI customer support platform orchestrating seamless agent transfers, real-time follow-ups, and multilingual speech-to-text / text-to-speech interaction streams.",
+    points: [
+      "Engineered zero-dependency embeddable chat SDKs supporting dynamic customer branding, automated business-hours logic, and contextual session persistence across subdomains.",
+      "Low-latency multilingual voice agent interfaces with audio transcript streaming and waveform telemetry.",
+    ],
+    tags: ["Next.js", "React.js", "TypeScript", "WebSockets", "STT / TTS", "Tailwind CSS"],
+    metrics: "Bidirectional STT/TTS • Embeddable Chat SDK",
+    icon: FiLayers,
   },
 ];
 
@@ -20,69 +52,111 @@ export default function Projects() {
   return (
     <section
       id="projects"
-      className="py-32 px-6 bg-[#05060a] text-white relative overflow-hidden"
+      className="py-32 px-6 bg-[#08070d] text-white relative overflow-hidden"
     >
-      {/* background glow */}
+      {/* Background glow */}
       <div className="absolute inset-0">
-        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[600px] h-[600px] bg-cyan-500/10 blur-[140px] rounded-full" />
-        <div className="absolute bottom-0 right-0 w-[500px] h-[500px] bg-purple-500/10 blur-[140px] rounded-full" />
+        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[600px] h-[600px] bg-violet-600/15 blur-[150px] rounded-full" />
+        <div className="absolute bottom-0 right-0 w-[500px] h-[500px] bg-indigo-600/15 blur-[150px] rounded-full" />
       </div>
 
       <div className="max-w-7xl mx-auto relative z-10">
-        {/* Heading */}
+        {/* Section Heading */}
         <div className="text-center mb-20">
-          <p className="text-cyan-400 uppercase tracking-[0.3em] mb-4 text-sm">
-            Portfolio
+          <p className="text-violet-400 uppercase tracking-[0.3em] mb-4 text-sm font-semibold">
+            Key Projects
           </p>
 
-          <h2 className="text-5xl font-black">
+          <h2 className="text-4xl md:text-5xl font-black">
             Featured{" "}
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-blue-500">
-              Projects
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-violet-400 via-purple-300 to-indigo-300">
+              Applications
             </span>
           </h2>
 
-          <p className="text-gray-400 mt-6 max-w-2xl mx-auto">
-            A collection of high-performance fintech and crypto applications built
-            with modern frontend architectures.
+          <p className="text-gray-400 mt-6 max-w-2xl mx-auto text-base">
+            Production crypto trading platforms, settlement applications, and enterprise conversational AI interfaces engineered for low-latency performance.
           </p>
         </div>
 
-        {/* Cards */}
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {projects.map((project) => (
-            <div
-              key={project.title}
-              className="group relative rounded-3xl p-[1px] bg-gradient-to-br from-cyan-500/20 to-purple-500/20"
-            >
-              {/* inner card */}
-              <div
-                className="h-full rounded-3xl p-8 bg-white/5 backdrop-blur-xl
-                           border border-white/10
-                           transition duration-300
-                           group-hover:-translate-y-2 group-hover:border-cyan-500/30"
+        {/* Project Cards Grid */}
+        <div className="grid md:grid-cols-3 gap-8">
+          {projects.map((project) => {
+            const Icon = project.icon;
+
+            return (
+              <motion.div
+                key={project.title}
+                whileHover={{ y: -6 }}
+                transition={{ duration: 0.25 }}
+                className="group relative rounded-3xl p-[1px] bg-gradient-to-br from-violet-500/30 via-white/5 to-indigo-500/20 flex flex-col"
               >
-                {/* top glow block */}
-                <div className="h-44 rounded-2xl mb-6 bg-gradient-to-br from-cyan-500/10 via-blue-500/10 to-purple-500/10 relative overflow-hidden">
-                  <div className="absolute inset-0 opacity-30 bg-[radial-gradient(circle_at_top,#22d3ee,transparent_60%)]" />
-                  <p className="text-[clamp(36px,12vw,75px)] text-center font-bold text-cyan-400 flex items-center justify-center w-full h-full uppercase">{project.title.split(' ')[0]}</p>
+                {/* Inner Card */}
+                <div
+                  className="h-full rounded-3xl p-8 bg-[#0e0d17]/95 backdrop-blur-xl
+                             border border-white/10 flex flex-col justify-between
+                             group-hover:border-violet-500/50 transition-colors duration-300"
+                >
+                  <div>
+                    {/* Header badge & icon */}
+                    <div className="flex items-center justify-between gap-4 mb-6">
+                      <div className="w-12 h-12 rounded-2xl bg-violet-500/10 border border-violet-500/20 flex items-center justify-center text-violet-400 group-hover:scale-110 group-hover:bg-violet-500/20 transition-transform">
+                        <Icon size={24} />
+                      </div>
+
+                      <span className="text-xs font-semibold px-3 py-1.5 rounded-full bg-violet-500/10 text-violet-300 border border-violet-500/20">
+                        {project.metrics}
+                      </span>
+                    </div>
+
+                    <h3 className="text-2xl font-bold text-white group-hover:text-violet-300 transition-colors mb-1">
+                      {project.title}
+                    </h3>
+
+                    <p className="text-violet-400 text-xs font-semibold uppercase tracking-wider mb-4">
+                      {project.tagline}
+                    </p>
+
+                    <p className="text-gray-300 text-sm leading-relaxed mb-4">
+                      {project.description}
+                    </p>
+
+                    <ul className="space-y-2 mb-6">
+                      {project.points.map((pt, i) => (
+                        <li key={i} className="text-gray-400 text-xs leading-relaxed flex items-start gap-2">
+                          <span className="text-violet-400 mt-0.5">•</span>
+                          <span>{pt}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+
+                  <div>
+                    {/* Tech tag pills */}
+                    <div className="flex flex-wrap gap-2 mb-6 pt-4 border-t border-white/5">
+                      {project.tags.map((tag) => (
+                        <span
+                          key={tag}
+                          className="text-xs px-2.5 py-1 rounded-lg bg-violet-950/30 border border-violet-500/20 text-violet-200 group-hover:border-violet-500/40 transition-colors"
+                        >
+                          {tag}
+                        </span>
+                      ))}
+                    </div>
+
+                    {/* CTA link */}
+                    <a
+                      href="#contact"
+                      className="inline-flex items-center gap-2 text-violet-400 text-sm font-semibold hover:text-violet-300 transition-colors"
+                    >
+                      <span>Discuss Architecture</span>
+                      <FiArrowUpRight className="group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
+                    </a>
+                  </div>
                 </div>
-
-                <h3 className="text-2xl font-bold mb-4">
-                  {project.title}
-                </h3>
-
-                <p className="text-gray-400 leading-relaxed">
-                  {project.description}
-                </p>
-
-                {/* subtle CTA hint */}
-                <div className="mt-6 text-cyan-400 text-sm opacity-0 group-hover:opacity-100 transition">
-                  View details →
-                </div>
-              </div>
-            </div>
-          ))}
+              </motion.div>
+            );
+          })}
         </div>
       </div>
     </section>

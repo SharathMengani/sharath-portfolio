@@ -1,9 +1,14 @@
 import nodemailer from "nodemailer";
 
 export async function POST(req: Request) {
-  console.log('api'+ process.env.GMAIL_USER);
-  console.log('api'+ process.env.GMAIL_APP_PASSWORD);
   try {
+    if (!process.env.GMAIL_USER || !process.env.GMAIL_APP_PASSWORD) {
+      console.error("Missing Gmail credentials in environment variables.");
+      return Response.json(
+        { error: "Email service is not configured" },
+        { status: 500 }
+      );
+    }
     const { name, email, message, type, mobile } = await req.json();
 
     if (!name || !email || !message || !type) {

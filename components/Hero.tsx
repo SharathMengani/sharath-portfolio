@@ -1,8 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { BiLogoAngular, BiLogoReact } from "react-icons/bi";
-import { RiNextjsFill, RiNextjsLine } from "react-icons/ri";
+import { SiReact, SiNextdotjs, SiAngular, SiTypescript, SiSocket } from "react-icons/si";
 
 const containerVariants = {
   hidden: {},
@@ -41,43 +40,53 @@ const iconFloat: any = {
 
 export default function Hero() {
   return (
-    <section className="relative pt-36 flex items-center justify-center bg-[#05060a] text-white overflow-hidden px-6">
+    <section className="relative pt-36 pb-20 flex items-center justify-center bg-[#08070d] text-white overflow-hidden px-6">
 
       {/* 🔮 Background Glow */}
       <div className="absolute inset-0">
-        <div className="absolute top-[-20%] left-1/2 -translate-x-1/2 w-[700px] h-[700px] bg-cyan-500/10 blur-[160px] rounded-full animate-pulse" />
-        <div className="absolute bottom-[-20%] right-[-10%] w-[600px] h-[600px] bg-violet-500/10 blur-[160px] rounded-full animate-pulse" />
+        <div className="absolute top-[-20%] left-1/2 -translate-x-1/2 w-[700px] h-[700px] bg-violet-600/15 blur-[160px] rounded-full animate-pulse" />
+        <div className="absolute bottom-[-20%] right-[-10%] w-[600px] h-[600px] bg-indigo-600/15 blur-[160px] rounded-full animate-pulse" />
       </div>
 
       {/* 🧊 Content */}
       <motion.div
         variants={containerVariants}
-        initial={false}   // ✅ FIX LCP
+        initial={false}
         animate="show"
         className="relative z-10 max-w-5xl w-full text-center"
       >
 
         {/* Icons */}
-        <div className="flex justify-center gap-6 mb-8">
-          {[BiLogoAngular, BiLogoReact, RiNextjsLine].map((Icon, i) => (
+        <div className="flex justify-center gap-4 md:gap-6 mb-8 flex-wrap">
+          {[SiReact, SiNextdotjs, SiAngular, SiTypescript, SiSocket].map((Icon, i) => (
             <motion.div
               key={i}
               variants={iconFloat}
               whileHover={{ scale: 1.15, rotate: 5 }}
-              className="p-4 rounded-2xl bg-white/5 border border-white/10 
-                         shadow-lg hover:shadow-cyan-500/20 transition"
+              className="p-3.5 md:p-4 rounded-2xl bg-white/5 border border-white/10 
+                         shadow-lg hover:shadow-violet-500/20 hover:border-violet-500/40 transition text-violet-400"
             >
-              <Icon size={28} />
+              <Icon size={26} />
             </motion.div>
           ))}
         </div>
 
-        {/* Subtitle */}
+        {/* Subtitle Badge */}
+        <motion.div variants={fadeUp} className="mb-4">
+          <span className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-violet-500/10 border border-violet-500/20 text-violet-300 text-xs md:text-sm font-medium">
+            <span className="relative flex h-2 w-2">
+              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-violet-400 opacity-75" />
+              <span className="relative inline-flex rounded-full h-2 w-2 bg-violet-500" />
+            </span>
+            Sharath Chandra Mengani • Senior Frontend Developer • Hyderabad, India
+          </span>
+        </motion.div>
+
         <motion.p
           variants={fadeUp}
-          className="uppercase tracking-[0.4em] text-cyan-300 text-xs md:text-sm mb-6"
+          className="uppercase tracking-[0.35em] text-violet-400 text-xs md:text-sm mb-6 font-semibold"
         >
-          Frontend Developer • React • Next.js • Angular
+          Senior Frontend Developer • React.js • Next.js • Angular • TypeScript
         </motion.p>
 
         {/* Title */}
@@ -85,42 +94,54 @@ export default function Hero() {
           variants={titleVariant}
           className="text-4xl md:text-6xl lg:text-7xl font-extrabold leading-tight"
         >
-          Building{" "}
-          <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 via-blue-400 to-violet-500">
-            Scalable
+          Engineering{" "}
+          <span className="text-transparent bg-clip-text bg-gradient-to-r from-violet-400 via-purple-300 to-indigo-300">
+            High-Performance
           </span>
           <br />
-          Crypto & Fintech Platforms
+          FinTech, Crypto, AI & SaaS Applications
         </motion.h1>
 
         {/* Description */}
         <motion.p
           variants={fadeUp}
-          className="text-gray-400 text-base md:text-lg mt-8 max-w-2xl mx-auto leading-relaxed"
+          className="text-gray-400 text-base md:text-lg mt-8 max-w-3xl mx-auto leading-relaxed"
         >
-          5+ years crafting high-performance trading systems, dashboards, and
-          fintech applications using React, Next.js, Angular, WebSockets, and modern UI architecture.
+          Senior Frontend Developer with 5+ years of experience engineering high-performance FinTech, Crypto, AI, and SaaS applications. Specialized in modern reactive architecture using React.js, Next.js (App Router, SSR), Angular, and TypeScript with proven expertise in low-latency CEX/DEX trading terminals with real-time order books, enterprise multi-tenant AI conversational & voice agent dashboards, and WebSocket streaming.
         </motion.p>
 
         {/* CTA */}
-        <motion.div variants={fadeUp} className="mt-10">
+        <motion.div variants={fadeUp} className="mt-10 flex flex-wrap items-center justify-center gap-4">
           <motion.a
             href="#projects"
             whileHover={{
               scale: 1.05,
-              boxShadow: "0px 0px 25px rgba(34, 211, 238, 0.4)",
+              boxShadow: "0px 0px 30px rgba(139, 92, 246, 0.4)",
             }}
             whileTap={{ scale: 0.97 }}
-            className="relative inline-flex px-10 py-4 rounded-full font-semibold 
-                       bg-gradient-to-r from-cyan-500 via-blue-500 to-violet-600 
-                       text-white shadow-lg overflow-hidden"
+            className="relative inline-flex px-10 py-4 rounded-full font-bold 
+                       bg-gradient-to-r from-violet-600 via-indigo-600 to-purple-600 
+                       text-white shadow-lg shadow-violet-600/25 overflow-hidden"
           >
-            View Projects
+            View Key Projects
 
             {/* Shine Effect */}
             <span className="absolute inset-0 -translate-x-full hover:translate-x-full 
-                             bg-gradient-to-r from-transparent via-white/20 to-transparent 
+                             bg-gradient-to-r from-transparent via-white/30 to-transparent 
                              transition-transform duration-700" />
+          </motion.a>
+
+          <motion.a
+            href="#contact"
+            whileHover={{
+              scale: 1.05,
+              borderColor: "rgba(139, 92, 246, 0.6)",
+            }}
+            whileTap={{ scale: 0.97 }}
+            className="inline-flex px-9 py-4 rounded-full font-semibold border border-violet-500/20 
+                       bg-violet-950/20 backdrop-blur-md text-violet-300 hover:text-white hover:bg-violet-500/15 transition"
+          >
+            Get In Touch
           </motion.a>
         </motion.div>
 
@@ -147,7 +168,7 @@ export default function Hero() {
         }}
         className="absolute left-1/2 -translate-x-1/2 top-40"
       >
-        <ReactIcon className="w-120 h-120 text-blue-400" />
+        <ReactIcon className="w-120 h-120 text-violet-400/20" />
       </motion.div>
       <motion.div
         initial={{ opacity: 0, y: 30 }}
@@ -289,7 +310,7 @@ const NextJsIcon = ({ className }: { className: string }) => {
           gradientUnits="userSpaceOnUse"
           gradientTransform="rotate(90.218 14.934 38.787) scale(23.50017)"
         >
-          <stop offset={0} stopColor="#     " />
+          <stop offset={0} stopColor="#ffffff" />
           <stop offset={1} stopColor="#fff" stopOpacity={0} />
         </linearGradient>
       </defs>
