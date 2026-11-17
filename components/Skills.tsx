@@ -101,8 +101,14 @@ const skillCategories = [
 
 export default function Skills() {
   return (
-    <section id="skills" className="py-28 px-6 bg-[#09090b] text-zinc-100 relative">
-      <div className="max-w-6xl mx-auto">
+    <section id="skills" className="py-28 px-6 bg-[#09090b] text-zinc-100 relative overflow-hidden">
+      {/* ── Background Subtle Glow & Grid Accent ── */}
+      <div className="absolute inset-0 pointer-events-none">
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 w-[700px] h-[400px] bg-indigo-500/5 blur-[160px] rounded-full" />
+        <div className="absolute inset-0 bg-dot-pattern opacity-20" />
+      </div>
+
+      <div className="max-w-6xl mx-auto relative z-10">
 
         {/* ── Section Header ── */}
         <div className="mb-14">

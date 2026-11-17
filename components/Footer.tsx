@@ -138,7 +138,7 @@ export default function Footer() {
         {/* bottom text */}
         <div className="flex flex-col sm:flex-row items-center justify-between gap-4 text-xs font-mono text-zinc-500">
           <p className="footer-copy">
-            © {new Date().getFullYear()} Sharath Chandra Mengani • Senior Frontend Developer (6+ Years)
+            © {new Date().getFullYear()} Sharath Chandra Mengani • Senior Frontend Developer (5+ Years)
           </p>
           <p>
             B.Tech in Mechanical Engineering — CMR Technical Campus, JNTUH

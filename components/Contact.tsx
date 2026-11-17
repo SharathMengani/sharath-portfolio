@@ -168,8 +168,15 @@ export default function Contact() {
   };
 
   return (
-    <section id="contact" className="py-28 px-6 bg-[#09090b] text-zinc-100 relative">
-      <div className="max-w-6xl mx-auto">
+    <section id="contact" className="py-28 px-6 bg-[#09090b] text-zinc-100 relative overflow-hidden">
+      {/* ── Background Subtle Glow & Grid Accent ── */}
+      <div className="absolute inset-0 pointer-events-none">
+        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[600px] h-[400px] bg-indigo-500/5 blur-[160px] rounded-full" />
+        <div className="absolute bottom-0 right-0 w-[500px] h-[500px] bg-purple-500/5 blur-[160px] rounded-full" />
+        <div className="absolute inset-0 bg-grid-pattern opacity-15" />
+      </div>
+
+      <div className="max-w-6xl mx-auto relative z-10">
 
         {/* ── Section Header ── */}
         <div className="mb-14">
