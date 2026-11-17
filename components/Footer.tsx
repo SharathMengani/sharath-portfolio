@@ -81,40 +81,29 @@ export default function Footer() {
   return (
     <footer
       ref={footerRef}
-      className="relative bg-[#08070d] text-white overflow-hidden border-t border-white/10"
+      className="relative bg-[#09090b] text-zinc-100 overflow-hidden border-t border-white/[0.08]"
     >
-      {/* glow top line */}
-      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[500px] h-px bg-gradient-to-r from-transparent via-violet-500/40 to-transparent" />
-
-      {/* background glow */}
-      <div className="absolute inset-0">
-        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[600px] h-[600px] bg-violet-600/10 blur-[140px] rounded-full" />
-      </div>
-
-      <div className="max-w-6xl mx-auto relative z-10 py-14">
-        <div className="flex flex-col md:flex-row items-center justify-between gap-10">
+      <div className="max-w-6xl mx-auto relative z-10 py-12 px-6">
+        <div className="flex flex-col md:flex-row items-center justify-between gap-8">
 
           {/* logo */}
-          <a href="#" className="footer-logo flex items-center gap-3 group">
-            <div className="w-10 h-10 rounded-xl flex items-center justify-center font-bold text-white bg-gradient-to-br from-violet-600 via-indigo-600 to-purple-600 shadow-lg shadow-violet-500/20">
+          <a href="#" className="footer-logo flex items-center gap-2.5 group">
+            <div className="w-7 h-7 rounded-md flex items-center justify-center font-mono font-bold text-xs bg-zinc-900 text-zinc-100 border border-white/10 shadow-inner group-hover:border-indigo-500/40 transition-colors">
               SM
             </div>
 
-            <span className="text-lg font-bold tracking-wide">
-              Sharath{" "}
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-violet-400 via-purple-300 to-indigo-300">
-                Mengani
-              </span>
+            <span className="text-sm font-semibold tracking-tight text-zinc-200">
+              Sharath Chandra Mengani <span className="text-zinc-500 font-normal">/ Senior Frontend Developer</span>
             </span>
           </a>
 
           {/* links */}
-          <nav className="flex flex-wrap justify-center gap-8">
+          <nav className="flex flex-wrap justify-center gap-6">
             {footerLinks.map((link) => (
               <a
                 key={link.href}
                 href={link.href}
-                className="footer-link text-sm text-gray-400 hover:text-violet-400 transition-colors duration-300"
+                className="footer-link text-xs font-mono text-zinc-400 hover:text-zinc-100 transition-colors duration-200"
               >
                 {link.label}
               </a>
@@ -122,7 +111,7 @@ export default function Footer() {
           </nav>
 
           {/* socials */}
-          <div className="flex items-center gap-4">
+          <div className="flex items-center gap-2.5">
             {socials.map(({ href, label, icon: Icon }) => (
               <a
                 key={label}
@@ -132,28 +121,29 @@ export default function Footer() {
                 rel={href.startsWith("http") ? "noopener noreferrer" : undefined}
                 onMouseEnter={handleSocialEnter}
                 onMouseLeave={handleSocialLeave}
-                className="footer-social w-10 h-10 rounded-xl flex items-center justify-center
-                           bg-white/5 border border-white/10
-                           text-gray-400 hover:text-violet-400
-                           hover:border-violet-500/30 hover:bg-violet-950/30
-                           backdrop-blur-xl transition"
+                className="footer-social w-8 h-8 rounded-lg flex items-center justify-center
+                           bg-zinc-900 border border-white/10
+                           text-zinc-400 hover:text-white
+                           hover:border-white/20 transition"
               >
-                <Icon size={18} />
+                <Icon size={14} />
               </a>
             ))}
           </div>
         </div>
 
         {/* divider */}
-        <div className="my-10 h-px w-full bg-white/5" />
+        <div className="my-8 h-px w-full bg-white/[0.06]" />
 
         {/* bottom text */}
-        <p className="footer-copy text-center text-gray-500 text-sm">
-          © {new Date().getFullYear()} <span className="text-gray-300 font-medium">Sharath Chandra Mengani</span> • Senior Frontend Developer. Built with{" "}
-          <span className="text-violet-400 font-medium">Next.js</span>,{" "}
-          <span className="text-violet-400 font-medium">GSAP</span> &{" "}
-          <span className="text-violet-400 font-medium">Tailwind CSS</span>.
-        </p>
+        <div className="flex flex-col sm:flex-row items-center justify-between gap-4 text-xs font-mono text-zinc-500">
+          <p className="footer-copy">
+            © {new Date().getFullYear()} Sharath Chandra Mengani • Senior Frontend Developer (6+ Years)
+          </p>
+          <p>
+            B.Tech in Mechanical Engineering — CMR Technical Campus, JNTUH
+          </p>
+        </div>
       </div>
     </footer>
   );

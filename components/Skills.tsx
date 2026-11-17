@@ -12,27 +12,29 @@ import {
   SiTailwindcss,
   SiSass,
   SiFramer,
-  SiSocket,
+  SiSocketdotio,
   SiGit,
   SiGithub,
   SiVercel,
+  SiNodedotjs,
+  SiPostgresql,
 } from "react-icons/si";
 import {
-  BiCodeAlt,
-  BiSolidLayer,
-  BiMicrophone,
-  BiRocket,
-  BiPalette,
-  BiNetworkChart,
-  BiCheckShield,
-  BiLineChart,
-} from "react-icons/bi";
+  FiLayout,
+  FiServer,
+  FiRadio,
+  FiZap,
+  FiCpu,
+  FiShield,
+  FiLayers,
+} from "react-icons/fi";
 
 const skillCategories = [
   {
     title: "Core Frontend",
     description: "Next.js (App Router, SSR/SSG), React.js, Angular, TypeScript, JavaScript (ES6+), HTML5/CSS3",
-    icon: BiCodeAlt,
+    icon: FiLayout,
+    span: "md:col-span-2",
     skills: [
       { name: "Next.js (App Router, SSR/SSG)", icon: SiNextdotjs },
       { name: "React.js", icon: SiReact },
@@ -45,127 +47,121 @@ const skillCategories = [
   {
     title: "State & Architecture",
     description: "Redux, Zustand, NgRx, Context API, Component-Driven Design, Reusable UI Systems",
-    icon: BiSolidLayer,
+    icon: FiLayers,
+    span: "md:col-span-1",
     skills: [
       { name: "Redux", icon: SiRedux },
-      { name: "Zustand", icon: BiSolidLayer },
+      { name: "Zustand", icon: FiLayers },
       { name: "NgRx", icon: SiRedux },
       { name: "Context API", icon: SiReact },
-      { name: "Component-Driven Design", icon: BiCodeAlt },
-      { name: "Reusable UI Systems", icon: BiSolidLayer },
+      { name: "Component-Driven Design", icon: FiLayout },
+      { name: "Reusable UI Systems", icon: FiCpu },
     ],
   },
   {
     title: "Real-Time & Network",
-    description: "WebSockets (Streaming & Auto-reconnect), RESTful APIs, Speech-to-Text (STT) & Text-to-Speech (TTS)",
-    icon: BiMicrophone,
+    description: "WebSockets (Streaming & Auto-reconnect), RESTful APIs, Speech-to-Text (STT), Text-to-Speech (TTS)",
+    icon: FiRadio,
+    span: "md:col-span-1",
     skills: [
-      { name: "WebSockets (Streaming & Auto-reconnect)", icon: SiSocket },
-      { name: "RESTful APIs", icon: BiNetworkChart },
-      { name: "Speech-to-Text (STT)", icon: BiMicrophone },
-      { name: "Text-to-Speech (TTS)", icon: BiMicrophone },
+      { name: "WebSockets (Streaming & Reconnect)", icon: SiSocketdotio },
+      { name: "RESTful APIs", icon: FiServer },
+      { name: "Speech-to-Text (STT)", icon: FiRadio },
+      { name: "Text-to-Speech (TTS)", icon: FiZap },
     ],
   },
   {
     title: "Styling & UX",
     description: "Tailwind CSS, SCSS, Framer Motion, Responsive & Adaptive Layouts, Web Accessibility",
-    icon: BiPalette,
+    icon: FiLayout,
+    span: "md:col-span-1",
     skills: [
       { name: "Tailwind CSS", icon: SiTailwindcss },
       { name: "SCSS", icon: SiSass },
       { name: "Framer Motion", icon: SiFramer },
-      { name: "Responsive & Adaptive Layouts", icon: BiPalette },
-      { name: "Web Accessibility", icon: BiCheckShield },
+      { name: "Responsive & Adaptive Layouts", icon: FiLayout },
+      { name: "Web Accessibility (a11y)", icon: FiShield },
     ],
   },
   {
-    title: "Performance & Tools",
-    description: "Bundle Optimization, List Virtualization, Core Web Vitals, Git, GitHub, Vercel, Lighthouse, Copilot",
-    icon: BiRocket,
+    title: "Performance & DevOps",
+    description: "Bundle Optimization, List Virtualization, Core Web Vitals, Git / GitHub, Vercel, Lighthouse, Node.js / PostgreSQL",
+    icon: FiZap,
+    span: "md:col-span-1",
     skills: [
-      { name: "Bundle Optimization", icon: BiRocket },
-      { name: "List Virtualization", icon: BiRocket },
-      { name: "Core Web Vitals", icon: BiLineChart },
+      { name: "Bundle Optimization", icon: FiZap },
+      { name: "List Virtualization", icon: FiZap },
+      { name: "Core Web Vitals & Lighthouse", icon: FiZap },
       { name: "Git & GitHub", icon: SiGithub },
       { name: "Vercel", icon: SiVercel },
+      { name: "Node.js / PostgreSQL", icon: SiNodedotjs },
     ],
   },
 ];
 
 export default function Skills() {
   return (
-    <section
-      id="skills"
-      className="py-32 px-6 bg-[#08070d] text-white relative overflow-hidden"
-    >
-      {/* Background glow */}
-      <div className="absolute inset-0">
-        <div className="absolute top-1/2 left-0 w-[500px] h-[500px] bg-violet-600/15 blur-[140px] rounded-full" />
-        <div className="absolute bottom-0 right-0 w-[500px] h-[500px] bg-indigo-600/15 blur-[140px] rounded-full" />
-      </div>
+    <section id="skills" className="py-28 px-6 bg-[#09090b] text-zinc-100 relative">
+      <div className="max-w-6xl mx-auto">
 
-      <div className="max-w-7xl mx-auto relative z-10">
-        {/* Section Heading */}
-        <div className="text-center mb-16">
-          <p className="text-violet-400 uppercase tracking-[0.3em] mb-4 text-sm font-semibold">
-            Technical Skills
+        {/* ── Section Header ── */}
+        <div className="mb-14">
+          <p className="text-xs font-mono uppercase tracking-[0.25em] text-zinc-500 mb-2">
+            Capability Matrix
           </p>
-
-          <h2 className="text-4xl md:text-5xl font-black">
-            Skills &{" "}
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-violet-400 via-purple-300 to-indigo-300">
-              Technical Arsenal
-            </span>
+          <h2 className="text-3xl sm:text-4xl font-bold tracking-[-0.03em] text-zinc-50">
+            Skills & Technical Arsenal
           </h2>
-
-          <p className="text-gray-400 mt-6 max-w-2xl mx-auto text-base">
-            Specialized modern reactive frontend architecture, low-latency streaming protocols, and state management systems.
+          <p className="text-zinc-400 mt-2 max-w-xl text-sm leading-relaxed">
+            Specialized in reactive frontend architecture, real-time socket streaming, state pipelines, and performance optimization.
           </p>
         </div>
 
-        {/* Categories Grid */}
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+        {/* ── Clean Bento Matrix (3-Column Layout) ── */}
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
           {skillCategories.map((cat, idx) => {
             const CatIcon = cat.icon;
-            const isFullWidth = idx === 4;
 
             return (
-              <div
+              <motion.div
                 key={cat.title}
-                className={`p-7 rounded-3xl bg-white/5 border border-white/10 backdrop-blur-xl hover:border-violet-500/40 hover:bg-violet-950/20 transition-all duration-300 flex flex-col justify-between ${isFullWidth ? "md:col-span-2 lg:col-span-2" : ""
-                  }`}
+                initial={{ opacity: 0, y: 12 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.3, delay: idx * 0.05 }}
+                className={`p-6 surface-card rounded-2xl flex flex-col justify-between ${cat.span}`}
               >
                 <div>
-                  <div className="flex items-center gap-3.5 mb-2">
-                    <div className="w-10 h-10 rounded-xl bg-violet-500/10 border border-violet-500/20 flex items-center justify-center text-violet-400">
-                      <CatIcon size={20} />
+                  <div className="flex items-center gap-3 mb-2">
+                    <div className="w-8 h-8 rounded-lg bg-zinc-900 border border-white/10 flex items-center justify-center text-zinc-300">
+                      <CatIcon size={16} />
                     </div>
-                    <h3 className="text-lg font-bold text-white">{cat.title}</h3>
+                    <h3 className="text-base font-bold text-zinc-100">
+                      {cat.title}
+                    </h3>
                   </div>
 
-                  <p className="text-gray-400 text-xs mb-5 leading-relaxed">
+                  <p className="text-zinc-500 text-xs mb-5 font-mono">
                     {cat.description}
                   </p>
                 </div>
 
-                <div className="flex flex-wrap gap-2">
+                {/* Inline Badges with Subtle Zinc Hover */}
+                <div className="flex flex-wrap gap-2 pt-3 border-t border-white/[0.04]">
                   {cat.skills.map((skill) => {
                     const Icon = skill.icon;
                     return (
-                      <motion.div
+                      <div
                         key={skill.name}
-                        whileHover={{ scale: 1.04, y: -2 }}
-                        className="px-3 py-2 rounded-xl bg-white/5 border border-white/10 
-                                   flex items-center gap-2 text-xs text-gray-200 
-                                   hover:text-white hover:border-violet-500/40 hover:bg-violet-950/40 transition-colors"
+                        className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-md bg-zinc-900/80 border border-white/[0.06] hover:border-white/20 hover:bg-zinc-800 transition-colors text-xs text-zinc-300 hover:text-white"
                       >
-                        <Icon className="text-violet-400 text-sm shrink-0" />
-                        <span>{skill.name}</span>
-                      </motion.div>
+                        <Icon className="text-zinc-400 text-xs shrink-0" />
+                        <span className="font-mono text-[11px]">{skill.name}</span>
+                      </div>
                     );
                   })}
                 </div>
-              </div>
+              </motion.div>
             );
           })}
         </div>

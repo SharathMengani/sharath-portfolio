@@ -82,35 +82,35 @@ export default function Navbar() {
       className="fixed top-0 left-0 w-full z-50 transition-all duration-500"
       style={{
         background: scrolled
-          ? "rgba(8, 7, 13, 0.92)"
-          : "rgba(8, 7, 13, 0.65)",
-        backdropFilter: "blur(24px)",
-        WebkitBackdropFilter: "blur(24px)",
+          ? "rgba(9, 9, 11, 0.88)"
+          : "rgba(9, 9, 11, 0.60)",
+        backdropFilter: "blur(20px)",
+        WebkitBackdropFilter: "blur(20px)",
         borderBottom: scrolled
-          ? "1px solid rgba(139, 92, 246, 0.20)"
-          : "1px solid rgba(255, 255, 255, 0.05)",
-        boxShadow: scrolled ? "0 4px 40px rgba(0,0,0,0.6)" : "none",
+          ? "1px solid rgba(255, 255, 255, 0.08)"
+          : "1px solid rgba(255, 255, 255, 0.04)",
+        boxShadow: scrolled ? "0 8px 32px rgba(0,0,0,0.4)" : "none",
       }}
     >
       {/* ── desktop bar ── */}
-      <div className="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
+      <div className="max-w-7xl mx-auto px-6 py-3.5 flex items-center justify-between">
         {/* logo */}
         <a href="#" className="nav-logo flex items-center gap-2.5 group">
-          <div className="w-8 h-8 rounded-lg flex items-center justify-center font-black text-white bg-gradient-to-br from-violet-600 via-purple-600 to-indigo-600 shadow-md shadow-violet-500/25">
-            S
+          <div className="w-7 h-7 rounded-md flex items-center justify-center font-mono font-bold text-xs bg-zinc-900 text-zinc-100 border border-white/10 shadow-inner group-hover:border-indigo-500/40 transition-colors">
+            SM
           </div>
-          <span className="text-xl font-bold tracking-tight text-white group-hover:text-violet-400 transition-colors">
-            Sharath<span className="text-violet-400">.</span>
+          <span className="text-sm font-semibold tracking-tight text-zinc-100 group-hover:text-white transition-colors">
+            Sharath Chandra <span className="text-zinc-500 font-normal">/ Senior Frontend</span>
           </span>
         </a>
 
         {/* desktop links */}
-        <nav className="hidden md:flex items-center gap-8">
+        <nav className="hidden md:flex items-center gap-7">
           {links.map((link) => (
             <a
               key={link.href}
               href={link.href}
-              className="nav-link text-sm font-medium text-gray-300 hover:text-violet-400 transition-colors"
+              className="nav-link text-xs font-medium text-zinc-400 hover:text-zinc-100 transition-colors"
               onMouseEnter={handleNavLinkEnter}
               onMouseLeave={handleNavLinkLeave}
             >
@@ -122,38 +122,39 @@ export default function Navbar() {
         {/* desktop CTA */}
         <a
           href="#contact"
-          className="nav-cta hidden md:inline-flex items-center gap-2 px-5 py-2.5 rounded-full text-sm font-semibold bg-gradient-to-r from-violet-600 via-indigo-600 to-purple-600 text-white shadow-md shadow-violet-500/25 hover:shadow-violet-500/40 hover:scale-105 transition-all"
+          className="nav-cta hidden md:inline-flex items-center gap-2 px-4 py-2 rounded-lg text-xs font-semibold bg-zinc-100 text-zinc-950 hover:bg-white shadow-[inset_0_1px_0_0_rgba(255,255,255,0.4)] transition-all hover:scale-[1.02]"
           onMouseEnter={handleCtaEnter}
           onMouseLeave={handleCtaLeave}
         >
-          Hire Me ✦
+          <span className="w-1.5 h-1.5 rounded-full bg-indigo-600 animate-pulse" />
+          Get In Touch
         </a>
 
         {/* mobile toggle */}
         <button
-          className="md:hidden text-white p-2 rounded-xl bg-white/5 border border-white/10"
+          className="md:hidden text-zinc-300 p-2 rounded-lg bg-zinc-900 border border-white/10"
           onClick={() => setOpen((v) => !v)}
           aria-label="Toggle menu"
         >
-          {open ? <X size={20} /> : <Menu size={20} />}
+          {open ? <X size={18} /> : <Menu size={18} />}
         </button>
       </div>
 
       {/* ── mobile drawer ── */}
       <div
         ref={mobileRef}
-        className="md:hidden overflow-hidden"
+        className="md:hidden overflow-hidden bg-[#09090b]/95 border-b border-white/10"
         style={{ height: 0, opacity: 0 }}
       >
         <div
-          className="px-6 pb-6 flex flex-col gap-4"
+          className="px-6 py-4 flex flex-col gap-3"
           style={{ borderTop: "1px solid rgba(255,255,255,0.06)" }}
         >
           {links.map((link) => (
             <a
               key={link.href}
               href={link.href}
-              className="mobile-link nav-link text-base py-2 text-gray-300 hover:text-violet-400 font-medium"
+              className="mobile-link nav-link text-sm py-1.5 text-zinc-400 hover:text-zinc-100 font-medium"
               onClick={() => setOpen(false)}
             >
               {link.label}
@@ -162,9 +163,9 @@ export default function Navbar() {
           <a
             href="#contact"
             onClick={() => setOpen(false)}
-            className="mobile-link inline-flex justify-center px-5 py-3 rounded-full text-sm font-semibold bg-gradient-to-r from-violet-600 via-indigo-600 to-purple-600 text-white mt-2 shadow-md shadow-violet-500/25"
+            className="mobile-link inline-flex justify-center px-4 py-2.5 rounded-lg text-xs font-semibold bg-zinc-100 text-zinc-950 mt-2"
           >
-            Hire Me ✦
+            Get In Touch
           </a>
         </div>
       </div>

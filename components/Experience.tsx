@@ -15,16 +15,27 @@ const experiences = [
       "TypeScript",
       "Tailwind CSS",
       "WebSockets",
-      "REST APIs",
       "Redux",
       "Zustand",
-      "STT / TTS",
+      "STT/TTS",
     ],
-    highlights: [
-      "AI Agent Fleets & Workflows: Architected conversational UI for autonomous AI Chat Agents, Voice Agents, and live human handoff protocols, supporting real-time conversation transfers, active queues, and callback schedules.",
-      "Voice Streaming & Telemetry: Implemented low-latency multilingual Voice Agent experiences featuring call history tracking, waveform playback, live audio transcript streaming, and bidirectional STT/TTS handling.",
-      "Embeddable Widget Architecture: Engineered customizable, multi-tenant embeddable chat widgets with brand dynamic theming, launcher triggers, operating-hour logic, and automated publishing workflows.",
-      "Performance & Auth: Optimized dashboard rendering and initial load speeds using Next.js App Router and tree-shaking; built enterprise authentication with OTP verification, first-time credentials, and RBAC profile controls.",
+    bullets: [
+      {
+        keyword: "AI Agent Fleets & Workflows",
+        text: "Architected conversational UI for autonomous AI Chat Agents, Voice Agents, and live human handoff protocols supporting real-time transfers, active queues, and callbacks.",
+      },
+      {
+        keyword: "Voice Streaming & Telemetry",
+        text: "Built low-latency multilingual Voice Agent experiences featuring call history tracking, waveform playback, live transcript streaming, and bidirectional STT/TTS handling.",
+      },
+      {
+        keyword: "Embeddable Widget Architecture",
+        text: "Engineered customizable multi-tenant embeddable chat widgets with dynamic brand theming, launcher triggers, operating-hour logic, and automated publishing workflows.",
+      },
+      {
+        keyword: "Performance & Auth",
+        text: "Optimized initial load speeds using Next.js App Router and tree-shaking; implemented enterprise auth with OTP verification, first-time credentials, and RBAC controls.",
+      },
     ],
   },
   {
@@ -44,103 +55,105 @@ const experiences = [
       "Tailwind CSS",
       "SCSS",
     ],
-    highlights: [
-      "High-Frequency Trading UI: Engineered production Centralized (CEX) and Decentralized (DEX) crypto exchange interfaces, developing live-streaming order books, real-time depth visualization, and candlestick chart integrations.",
-      "Modernization & Migration: Led the frontend refactor and migration of legacy AngularJS applications to modern Angular and Next.js, significantly boosting maintainability, code modularity, and reusable design token usage.",
-      "Sub-second WebSocket Pipelines: Integrated low-latency WebSocket and REST APIs for continuous ticker updates, order execution states, wallet balances, and depth-of-market feeds without blocking the main UI thread.",
-      "Rendering Optimization: Mitigated DOM bottlenecks during high market volatility by leveraging code splitting, memoization, list virtualization, and state decoupling via Redux, Zustand, and NgRx.",
+    bullets: [
+      {
+        keyword: "High-Frequency Trading UI",
+        text: "Engineered production Centralized (CEX) and Decentralized (DEX) crypto exchange interfaces with live-streaming order books, real-time market depth visualization, and candlestick charts.",
+      },
+      {
+        keyword: "Modernization & Migration",
+        text: "Led frontend refactoring and migration of legacy AngularJS applications to modern Angular and Next.js, improving modularity and reusable design token adoption.",
+      },
+      {
+        keyword: "Sub-Second WebSocket Pipelines",
+        text: "Integrated low-latency WebSocket and REST APIs for continuous ticker updates, order execution states, wallet balances, and depth-of-market feeds without blocking the main UI thread.",
+      },
+      {
+        keyword: "Rendering Optimization",
+        text: "Eliminated DOM bottlenecks during extreme market volatility via code splitting, memoization, list virtualization, and decoupled state (Redux, Zustand, NgRx).",
+      },
     ],
   },
 ];
 
 export default function Experience() {
   return (
-    <section
-      id="experience"
-      className="py-32 px-6 bg-[#08070d] text-white relative overflow-hidden"
-    >
-      {/* Background glow */}
-      <div className="absolute inset-0">
-        <div className="absolute top-1/4 right-0 w-[550px] h-[550px] bg-violet-600/15 blur-[150px] rounded-full" />
-        <div className="absolute bottom-10 left-0 w-[500px] h-[500px] bg-indigo-600/15 blur-[140px] rounded-full" />
-      </div>
+    <section id="experience" className="py-28 px-6 bg-[#09090b] text-zinc-100 relative">
+      <div className="max-w-6xl mx-auto">
 
-      <div className="max-w-6xl mx-auto relative z-10">
-        {/* Section Header */}
-        <div className="text-center mb-20">
-          <p className="text-violet-400 uppercase tracking-[0.3em] mb-4 text-sm font-semibold">
-            Professional Experience
+        {/* ── Section Header ── */}
+        <div className="mb-20 text-center">
+          <p className="text-xs font-mono uppercase tracking-[0.25em] text-zinc-500 mb-2">
+            Track Record
           </p>
-
-          <h2 className="text-4xl md:text-5xl font-black">
-            Career{" "}
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-violet-400 via-purple-300 to-indigo-300">
-              Journey
-            </span>
+          <h2 className="text-3xl sm:text-4xl font-bold tracking-[-0.03em] text-zinc-50">
+            Career Journey & Experience
           </h2>
-
-          <p className="text-gray-400 mt-4 max-w-2xl mx-auto text-base">
-            Over 5 years of engineering high-performance FinTech, Crypto, AI, and SaaS applications across production environments.
+          <p className="text-zinc-400 mt-2 max-w-xl mx-auto text-sm leading-relaxed">
+            6+ years of engineering production applications across FinTech, Crypto, AI, and SaaS platforms.
           </p>
         </div>
 
-        {/* Experience Timeline */}
-        <div className="space-y-12 relative before:absolute before:inset-0 before:left-8 md:before:left-1/2 before:-translate-x-px before:h-full before:w-0.5 before:bg-gradient-to-b before:from-violet-500 before:via-indigo-500/20 before:to-transparent">
+        {/* ── Refined Timeline ── */}
+        <div className="space-y-12 relative before:absolute before:inset-0 before:left-8 md:before:left-1/2 before:-translate-x-px before:h-full before:w-[1px] before:bg-white/[0.08]">
           {experiences.map((exp, index) => {
             const isEven = index % 2 === 0;
             return (
               <motion.div
                 key={exp.company}
-                initial={{ opacity: 0, y: 30 }}
+                initial={{ opacity: 0, y: 16 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
-                transition={{ duration: 0.6, delay: index * 0.15 }}
+                transition={{ duration: 0.35, delay: index * 0.1 }}
                 className={`relative flex flex-col md:flex-row items-start ${isEven ? "md:flex-row-reverse" : ""
                   } gap-8`}
               >
-                {/* Timeline center node */}
-                <div className="absolute left-8 md:left-1/2 -translate-x-1/2 w-8 h-8 rounded-full bg-[#08070d] border-2 border-violet-400 flex items-center justify-center text-violet-400 shadow-lg shadow-violet-500/30 z-20">
-                  <FiBriefcase size={14} />
+                {/* Timeline Center Node */}
+                <div className="absolute left-8 md:left-1/2 -translate-x-1/2 w-7 h-7 rounded-full bg-[#09090b] border border-white/20 flex items-center justify-center text-zinc-300 shadow-[0_0_12px_rgba(99,102,241,0.2)] z-20">
+                  <span className="w-2 h-2 rounded-full bg-indigo-500" />
                 </div>
 
                 {/* Card Container */}
                 <div className="ml-16 md:ml-0 md:w-1/2 md:px-8 w-full">
-                  <div className="p-8 rounded-3xl bg-white/5 border border-white/10 backdrop-blur-xl hover:border-violet-500/40 hover:bg-violet-950/20 transition-all duration-300 shadow-xl group">
-                    {/* Header */}
-                    <div className="flex flex-wrap items-center justify-between gap-2 mb-2">
-                      <span className="text-xs font-semibold px-3 py-1 rounded-full bg-violet-500/10 text-violet-300 border border-violet-500/20 flex items-center gap-1.5">
-                        <FiCalendar size={12} />
+                  <div className="p-8 surface-card rounded-2xl group">
+                    {/* Header Meta */}
+                    <div className="flex flex-wrap items-center justify-between gap-2 mb-3">
+                      <span className="text-xs font-mono px-2.5 py-1 rounded-md bg-zinc-900 border border-white/10 text-zinc-300 flex items-center gap-1.5">
+                        <FiCalendar size={12} className="text-zinc-400" />
                         {exp.period}
                       </span>
-                      <span className="text-xs text-gray-400 flex items-center gap-1">
+                      <span className="text-xs font-mono text-zinc-500 flex items-center gap-1">
                         <FiMapPin size={12} />
                         {exp.location}
                       </span>
                     </div>
 
-                    <h3 className="text-2xl font-bold text-white group-hover:text-violet-300 transition-colors">
+                    <h3 className="text-xl font-bold text-zinc-100 group-hover:text-white transition-colors">
                       {exp.role}
                     </h3>
-                    <p className="text-violet-400 font-medium text-base mb-5">
+                    <p className="text-sm font-medium text-indigo-400 mb-6">
                       {exp.company}
                     </p>
 
-                    {/* Highlights */}
+                    {/* Scannable Bullets */}
                     <ul className="space-y-3 mb-6">
-                      {exp.highlights.map((item, i) => (
-                        <li key={i} className="flex items-start gap-2.5 text-gray-300 text-sm leading-relaxed">
-                          <FiCheckCircle size={16} className="text-violet-400 mt-1 shrink-0" />
-                          <span>{item}</span>
+                      {exp.bullets.map((b, i) => (
+                        <li key={i} className="flex items-start gap-2.5 text-zinc-400 text-xs sm:text-sm leading-relaxed">
+                          <FiCheckCircle size={15} className="text-zinc-500 mt-1 shrink-0" />
+                          <span>
+                            <strong className="text-zinc-200 font-semibold">{b.keyword}:</strong>{" "}
+                            {b.text}
+                          </span>
                         </li>
                       ))}
                     </ul>
 
                     {/* Tech Badges */}
-                    <div className="flex flex-wrap gap-2 pt-4 border-t border-white/5">
+                    <div className="flex flex-wrap gap-1.5 pt-4 border-t border-white/[0.06]">
                       {exp.technologies.map((tech) => (
                         <span
                           key={tech}
-                          className="text-xs px-2.5 py-1 rounded-lg bg-white/5 border border-white/10 text-gray-300 group-hover:border-violet-500/30 transition-colors"
+                          className="text-[11px] font-mono px-2 py-0.5 rounded bg-zinc-900/80 border border-white/[0.06] text-zinc-400"
                         >
                           {tech}
                         </span>
@@ -156,4 +169,3 @@ export default function Experience() {
     </section>
   );
 }
-
